@@ -9,6 +9,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "mat-ngx-tui-calendar": [
+        "dist/mat-ngx-tui-calendar/mat-ngx-tui-calendar",
+        "dist/mat-ngx-tui-calendar"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
