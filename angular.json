@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-mat-tui-calendar": {
+      "projectType": "library",
+      "root": "projects/ngx-mat-tui-calendar",
+      "sourceRoot": "projects/ngx-mat-tui-calendar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-mat-tui-calendar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-mat-tui-calendar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-mat-tui-calendar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-mat-tui-calendar/src/test.ts",
+            "tsConfig": "projects/ngx-mat-tui-calendar/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-mat-tui-calendar/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-mat-tui-calendar"
 }

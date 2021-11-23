@@ -11,6 +11,12 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "ngx-mat-tui-calendar": [
+        "dist/ngx-mat-tui-calendar/ngx-mat-tui-calendar",
+        "dist/ngx-mat-tui-calendar"
+      ]
+    },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
