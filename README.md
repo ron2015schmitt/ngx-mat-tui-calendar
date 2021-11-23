@@ -66,14 +66,14 @@ Insert the following HTML into one of your app's template files
 
 # Documentation
 
-## MatTuiCalendarNgx
+## MatTuiCalendar
 
 Directive responsible for managing the timepicker popup and setting value to input
 
-Selector: `ngx-mat-tui-calendar`
+Selector: `mat-tui-calendar`
 
 ```typescript
-  <ngx-mat-tui-calendar #tuiCalendar 
+  <mat-tui-calendar #tuiCalendar 
     (userCreatedSchedule)="onUserCreatedSchedule($event)"
     (userUpdatedSchedule)="onUserUpdatedSchedule($event)"
     (userDeletedSchedule)="onUserDeletedSchedule($event)"
