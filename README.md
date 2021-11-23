@@ -47,17 +47,17 @@ npm i --save ngx-mat-tui-calendar
 ```
 Next import the module into your app's ```app.module.ts```:
 ```typescript
-import {MatTuiCalendarNgxModule} from 'ngx-mat-tui-calendar';
+import {NgxMatTuiCalendarModule} from 'ngx-mat-tui-calendar';
 
 @NgModule({
-  imports: [MatTuiCalendarNgxModule]
+  imports: [NgxMatTuiCalendarModule]
 })
 
 ```
 
 Insert the following HTML into one of your app's template files
 ```angular2html
-<ngx-mat-tui-calendar></ngx-mat-tui-calendar>
+<mat-tui-calendar></mat-tui-calendar>
 ```
 
 ## Demo Project
@@ -66,14 +66,14 @@ Insert the following HTML into one of your app's template files
 
 # Documentation
 
-## MatTuiCalendarNgx
+## MatTuiCalendar
 
 Directive responsible for managing the timepicker popup and setting value to input
 
-Selector: `ngx-mat-tui-calendar`
+Selector: `mat-tui-calendar`
 
 ```typescript
-  <ngx-mat-tui-calendar #tuiCalendar 
+  <mat-tui-calendar #tuiCalendar 
     (userCreatedSchedule)="onUserCreatedSchedule($event)"
     (userUpdatedSchedule)="onUserUpdatedSchedule($event)"
     (userDeletedSchedule)="onUserDeletedSchedule($event)"
