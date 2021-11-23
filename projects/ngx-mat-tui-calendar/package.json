@@ -1,6 +1,19 @@
 {
   "name": "ngx-mat-tui-calendar",
-  "version": "0.0.1",
+  "version": "0.0.6",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ron2015schmitt/ngx-mat-tui-calendar.git"
+  },
+  "keywords": [
+    ""
+  ],
+  "author": "ron schmitt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar/issues"
+  },
+  "homepage": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar#readme",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
     "@angular/core": "^12.2.0"
