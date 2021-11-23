@@ -4,6 +4,9 @@
 /projects/ngx-mat-tui-calendar/node_modules
 /projects/ngx-mat-tui-calendar/package-lock.json
 
+/projects/quickstart/node_modules
+
+
 # compiled output
 /dist
 /tmp
