@@ -1,5 +1,5 @@
 {
-  "name": "@ron2015schmitt/mat-ngx-tui-calendar",
+  "name": "mat-ngx-tui-calendar",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.2.0",
