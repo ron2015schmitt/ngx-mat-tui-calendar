@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/projects/mat-ngx-tui-calendar/node_modules
-/projects/mat-ngx-tui-calendar/package-lock.json
+/projects/ngx-mat-tui-calendar/node_modules
+/projects/ngx-mat-tui-calendar/package-lock.json
 
 # compiled output
 /dist

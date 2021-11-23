@@ -1,17 +1,17 @@
 
-![mat-ngx-tui-calendar](https://user-images.githubusercontent.com/11559541/141514000-da6e6c8a-e00b-4f27-a8c2-b7f28538b2f0.png)
+![ngx-mat-tui-calendar](https://user-images.githubusercontent.com/11559541/141514000-da6e6c8a-e00b-4f27-a8c2-b7f28538b2f0.png)
 
 [![Development Status](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/ron2015schmitt/mat-ngx-tui-calendar.svg)](https://github.com/ron2015schmitt/mat-ngx-tui-calendar/stargazers)
-![GitHub downloads all releases](https://img.shields.io/github/downloads/ron2015schmitt/mat-ngx-tui-calendar/total)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/ron2015schmitt/mat-ngx-tui-calendar)
+[![GitHub stars](https://img.shields.io/github/stars/ron2015schmitt/ngx-mat-tui-calendar.svg)](https://github.com/ron2015schmitt/ngx-mat-tui-calendar/stargazers)
+![GitHub downloads all releases](https://img.shields.io/github/downloads/ron2015schmitt/ngx-mat-tui-calendar/total)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/ron2015schmitt/ngx-mat-tui-calendar)
 
-![npm](https://img.shields.io/npm/v/@ron2015schmitt/mat-ngx-tui-calendar?label=npm%20package)
-![npm downloads](https://img.shields.io/npm/dt/@ron2015schmitt/mat-ngx-tui-calendar?label=npm%20downloads)
+![npm](https://img.shields.io/npm/v/@ron2015schmitt/ngx-mat-tui-calendar?label=npm%20package)
+![npm downloads](https://img.shields.io/npm/dt/@ron2015schmitt/ngx-mat-tui-calendar?label=npm%20downloads)
 
-# mat-ngx-tui-calendar
+# ngx-mat-tui-calendar
 
 ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Work In Progress`
 This project is an Angular, Material Design wrapper for the [Toast UI Calendar](https://github.com/nhn/tui.calendar).
@@ -43,11 +43,11 @@ Using Angular 12 which requires node ^v14.15 (npm ^v6.14)
 
 Install via npm:
 ```bash
-npm i --save mat-ngx-tui-calendar
+npm i --save ngx-mat-tui-calendar
 ```
 Next import the module into your app's ```app.module.ts```:
 ```typescript
-import {MatTuiCalendarNgxModule} from 'mat-ngx-tui-calendar';
+import {MatTuiCalendarNgxModule} from 'ngx-mat-tui-calendar';
 
 @NgModule({
   imports: [MatTuiCalendarNgxModule]
@@ -57,7 +57,7 @@ import {MatTuiCalendarNgxModule} from 'mat-ngx-tui-calendar';
 
 Insert the following HTML into one of your app's template files
 ```angular2html
-<mat-ngx-tui-calendar></mat-ngx-tui-calendar>
+<ngx-mat-tui-calendar></ngx-mat-tui-calendar>
 ```
 
 ## Demo Project
@@ -70,10 +70,10 @@ Insert the following HTML into one of your app's template files
 
 Directive responsible for managing the timepicker popup and setting value to input
 
-Selector: `mat-ngx-tui-calendar`
+Selector: `ngx-mat-tui-calendar`
 
 ```typescript
-  <mat-ngx-tui-calendar #tuiCalendar 
+  <ngx-mat-tui-calendar #tuiCalendar 
     (userCreatedSchedule)="onUserCreatedSchedule($event)"
     (userUpdatedSchedule)="onUserUpdatedSchedule($event)"
     (userDeletedSchedule)="onUserDeletedSchedule($event)"
