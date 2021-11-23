@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
-import { NgxMatTuiCalendarComponent } from './ngx-mat-tui-calendar.component';
-
-
+import { MatTuiCalendarComponent } from './ngx-mat-tui-calendar.component';
 
 @NgModule({
   declarations: [
-    NgxMatTuiCalendarComponent
+    MatTuiCalendarComponent,
   ],
   imports: [
   ],
   exports: [
-    NgxMatTuiCalendarComponent
-  ]
+    MatTuiCalendarComponent,
+  ],
+  entryComponents: [
+    MatTuiCalendarComponent,
+  ],
 })
 export class NgxMatTuiCalendarModule { }
