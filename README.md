@@ -8,8 +8,8 @@
 ![GitHub downloads all releases](https://img.shields.io/github/downloads/ron2015schmitt/ngx-mat-tui-calendar/total)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ron2015schmitt/ngx-mat-tui-calendar)
 
-![npm](https://img.shields.io/npm/v/@ron2015schmitt/ngx-mat-tui-calendar?label=npm%20package)
-![npm downloads](https://img.shields.io/npm/dt/@ron2015schmitt/ngx-mat-tui-calendar?label=npm%20downloads)
+![npm](https://img.shields.io/npm/v/ngx-mat-tui-calendar?label=npm%20package)
+![npm downloads](https://img.shields.io/npm/dt/ngx-mat-tui-calendar?label=npm%20downloads)
 
 # ngx-mat-tui-calendar
 
