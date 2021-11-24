@@ -62,7 +62,8 @@
               "projects/quickstart/src/assets"
             ],
             "styles": [
-              "projects/quickstart/src/styles.scss"
+              "projects/quickstart/src/styles.scss",
+              "node_modules/tui-calendar/dist/tui-calendar.min.css"
             ],
             "scripts": []
           },
