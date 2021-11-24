@@ -1,6 +1,6 @@
 {
   "name": "ngx-mat-tui-calendar",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ron2015schmitt/ngx-mat-tui-calendar.git"
@@ -15,12 +15,22 @@
   },
   "homepage": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar#readme",
   "peerDependencies": {
-    "@angular/common": "^12.2.0",
-    "@angular/core": "^12.2.0"
-  },
-  "dependencies": {
+    "@angular/animations": "^12.2.12",
+    "@angular/common": "^12.2.12",
+    "@angular/compiler": "^12.2.12",
+    "@angular/core": "^12.2.12",
+    "@angular/flex-layout": "^12.0.0-beta",
+    "@angular/forms": "^12.2.12",
+    "@angular/material": "^12.2.12",
+    "@angular/material-moment-adapter": "^12.2.12",
+    "@angular/platform-browser": "^12.2.12",
+    "@angular/platform-browser-dynamic": "^12.2.12",
+    "tui-calendar": "^1.15.1",
+    "tui-date-picker": "^4.3.1",
+    "tui-time-picker": "^2.1.4",
     "tslib": "^2.3.0"
   },
+  "dependencies": {},
   "browser": {
     "fs": false,
     "path": false,

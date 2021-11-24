@@ -1,0 +1,13 @@
+// This component exists so that we can declare ViewEncapsulation.None for the CSS
+// and thus have the styles applied to the actual tui.calendar object
+
+@use "sass:map";
+@use "~@angular/material" as mat;
+
+.tui-full-calendar-layout {
+    /* max-width: 800px !important; */
+}
+
+.tui-full-calendar-week-container {
+    min-height: auto;
+}
