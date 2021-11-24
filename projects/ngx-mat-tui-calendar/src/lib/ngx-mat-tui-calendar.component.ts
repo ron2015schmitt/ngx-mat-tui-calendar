@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'mat-tui-calendar',
+  selector: 'ngx-mat-tui-calendar',
   template: `
     <p>
-      mat-tui-calendar works!
+      ngx-mat-tui-calendar works!
     </p>
   `,
   styles: [
   ]
 })
-export class MatTuiCalendarComponent implements OnInit {
+export class NgxMatTuiCalendarComponent implements OnInit {
 
   constructor() { }
 

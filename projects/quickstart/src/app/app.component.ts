@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-// import { MatTuiCalendarComponent } from 'ngx-mat-tui-calendar';
+// import { NgxMatTuiCalendarComponent } from 'ngx-mat-tui-calendar';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -6,6 +6,7 @@
     "@angular/core": "^12.2.0"
   },
   "dependencies": {
+    "ngx-mat-tui-calendar": "0.0.6",
     "tslib": "^2.3.0"
   }
 }
