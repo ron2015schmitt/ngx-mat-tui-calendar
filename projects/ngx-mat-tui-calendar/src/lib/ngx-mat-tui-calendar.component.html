@@ -1,4 +1,83 @@
 <p>
     ngx-mat-tui-calendar v0.0.15 works!!!
 </p>
-<ngx-mat-tui-calendar-wrapper></ngx-mat-tui-calendar-wrapper>
+<section class="content-container">
+    <!-- These divs are here so that we can read the theme colors for the tui theme -->
+    <div id="theme-primary"></div>
+    <div id="theme-primary-shaded"></div>
+    <div id="theme-highlight"></div>
+    <div id="theme-accent"></div>
+    <div id="theme-warn"></div>
+    <div id="theme-foreground"></div>
+    <div id="theme-divider"></div>
+    <div id="theme-background"></div>
+  
+    <div class="calendar-container">
+      <!-- calendar titlebar -->
+      <mat-toolbar class="menu-bar" color="primary">
+        <!-- <div style="align-self: center;display: flex;
+    align-items: center;
+    justify-content: flex-start;"> -->
+        <div style="display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    width: 100%;  ">
+          <div class="left-div">
+            <!-- LEFT -->
+            <button mat-button 
+              class="navigation-button"
+              style="margin-left: 0px; margin-right: 0px; font-size: 1.5rem !important;" 
+              (click)="onCalendarLongPrev()">
+              <fa-icon [icon]="iconLongPrev"></fa-icon>
+            </button>
+            <button mat-button 
+              class="navigation-button" 
+              style="margin-left: 0px; margin-right: 0px; font-size: 2rem !important;" 
+              (click)="onCalendarPrev()">
+              <fa-icon [icon]="iconPrev"></fa-icon>
+            </button>
+            <button mat-button 
+              class="navigation-button"
+              style="margin-left: 0px; margin-right: 0px; font-size: 1.7rem !important;" 
+              (click)="onCalendarToday()">
+              <fa-icon [icon]="iconToday"></fa-icon>
+            </button>
+            <button mat-button 
+              class="navigation-button" 
+              style="margin-left: 0px; margin-right: 0px; font-size: 2rem !important;" 
+              (click)="onCalendarNext()">
+              <fa-icon [icon]="iconNext"></fa-icon>
+            </button>
+            <button mat-button 
+              class="navigation-button"
+              style="margin-left: 0px; margin-right: 0px; font-size: 1.5rem !important;" 
+              (click)="onCalendarLongNext()">
+              <fa-icon [icon]="iconLongNext"></fa-icon>
+            </button>
+          </div>
+          <div class="center-div">
+            <!-- CENTER -->
+            <span class="event-calendar-title">{{ getDate() }}</span>
+          </div>
+          <div class="right-div">
+  
+            <!-- RIGHT -->
+            <mat-button-toggle-group class="view-button" value="month" id="@+id/toggleButton" layout_width="wrap_content"
+              layout_height="wrap_content">
+              <mat-button-toggle mat-button value="month" class="view-button" (click)="onMonthView()">
+                <fa-icon [icon]="iconByMonth"></fa-icon>
+              </mat-button-toggle>
+              <mat-button-toggle mat-button value="week" class="view-button" (click)="onWeekView()">
+                <fa-icon [icon]="iconByWeek"></fa-icon>
+              </mat-button-toggle>
+              <mat-button-toggle mat-button value="day" class="view-button" (click)="onDayView()">
+                <fa-icon [icon]="iconByDay"></fa-icon>
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+      </mat-toolbar>
+      <ngx-mat-tui-calendar-wrapper></ngx-mat-tui-calendar-wrapper>
+    </div>
+  
+  </section>
