@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'ngx-mat-tui-calendar',
   template: `
     <p>
-      ngx-mat-tui-calendar works!
+      ngx-mat-tui-calendar v0.0.11 works!
     </p>
   `,
   styles: [
