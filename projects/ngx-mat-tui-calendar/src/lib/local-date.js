@@ -1,4 +1,3 @@
-// can be used on back-end as well
 
 // import { TZDate } from 'tui-calendar';
 

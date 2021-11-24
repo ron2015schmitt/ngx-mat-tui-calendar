@@ -7,6 +7,7 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
+    "allowJs": true,
     "types": [],
     "lib": [
       "dom",

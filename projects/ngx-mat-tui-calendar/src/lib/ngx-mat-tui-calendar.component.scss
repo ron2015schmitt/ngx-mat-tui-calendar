@@ -1,0 +1,81 @@
+.calendar-container {
+    transform-origin: top left;
+  }
+  
+  .menu-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem !important;
+    // max-width: 800px;
+  }
+  
+  .mat-button {
+    font-size: 1.1rem !important;
+  }
+  
+  .mat-button.navigation-button {
+    padding: 0;
+    min-width: 32px;
+  }
+  
+  .left-div {
+    width: 33%;
+    float: left;
+    display: flex;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .center-div {
+    width: 33%;
+    float: right;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .event-calendar-title {
+    font-size: 2rem;
+    vertical-align: middle;
+  }
+  
+  .right-div {
+    width: 33%;
+    display: flex;
+    white-space: nowrap;
+    vertical-align: middle;
+    flex-flow: row-reverse;
+  }
+  
+  @media screen and (max-width: 599px) {
+    .left-div {
+      transform: scale(0.75);
+      transform-origin: center left;
+    }
+    .center-div {
+      transform: scale(0.5);
+    }
+    .right-div {
+      transform: scale(1);
+      transform-origin: center right;
+      .mat-button-toggle-group.view-button {
+        font-size: 1.1rem !important;
+      }
+      ::ng-deep .mat-button-toggle-label-content {
+        padding: 0 8px !important;
+      }
+    }
+  }
+  
+  .mat-button-toggle-group.view-button {
+    height: 36px;
+    font-size: 1.25rem !important;
+  }
+  
+  .view-button {
+    align-items: center;
+  }
+  
+  ::ng-deep .mat-button-toggle-label-content {
+    padding: 0 10px !important;
+  }
