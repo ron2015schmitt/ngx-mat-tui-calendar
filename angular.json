@@ -49,6 +49,10 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "stylePreprocessorOptions": {
+              "includePaths": ["dist"]
+            },            
             "assets": [
               "src/favicon.ico",
               "src/assets"

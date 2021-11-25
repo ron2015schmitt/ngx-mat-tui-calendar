@@ -2,7 +2,9 @@
 
 @use 'sass:map';
 @use "@angular/material" as mat;
-// @use '@mat-ngx-tui-calendar.component-theme' as tui-calendar;
+@use 'ngx-mat-tui-calendar/ngx-mat-tui-calendar.theme.scss' as tui-calendar;
+
+// @use 'projects/mat-ngx-tui-calendar/src/lib/components/ngx-mat-tui-calendar/ngx-mat-tui-calendar.component-theme' as tui-calendar;
 
 @include mat.core();
 @include mat.strong-focus-indicators();
@@ -92,7 +94,7 @@ $light-theme: map-merge($light-theme-base, (foreground: $light-foreground));
 // top level html of app should have this class, eg <section class="light-theme">
 .light-theme {
     @include mat.all-component-themes($light-theme);
-    // @include tui-calendar.theme($light-theme);
+    @include tui-calendar.theme($light-theme);
     // @include mat.strong-focus-indicators-theme($light-theme);
     // @include mat.strong-focus-indicators-theme(green);
 }
@@ -125,6 +127,6 @@ $dark-theme: map-merge($dark-theme-base, (foreground: $dark-foreground), (backgr
 // top level html of app should have this class, eg <section class="light-theme">
 .dark-theme {
     @include mat.all-component-themes($dark-theme);
-    // @include tui-calendar.theme($dark-theme);
+    @include tui-calendar.theme($dark-theme);
     // @include mat.strong-focus-indicators-theme($dark-theme);
 }

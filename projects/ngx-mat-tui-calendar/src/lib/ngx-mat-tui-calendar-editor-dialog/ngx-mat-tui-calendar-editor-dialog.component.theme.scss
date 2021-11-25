@@ -1,0 +1,75 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map.get($color-config, 'accent');
+  $warn-palette: map.get($color-config, 'warn');
+  $darkMode: map.get($color-config, 'is-dark');
+
+  $submit-palette: $primary-palette;
+  @if ($darkMode) {
+    $submit-palette: $accent-palette;
+  }
+
+  
+  .highlight {
+    color: mat.get-color-from-palette($primary-palette, '600-contrast');
+    background-color: mat.get-color-from-palette($primary-palette, 600); 
+  }
+
+  #editor-submit-button {
+    color: mat.get-color-from-palette($submit-palette, '600-contrast');
+    background-color: mat.get-color-from-palette($submit-palette, 600); 
+  }
+
+
+  #editor-submit-button:hover {
+    color: mat.get-color-from-palette($submit-palette, '900-contrast');
+    background-color: mat.get-color-from-palette($submit-palette, 900);
+  }
+
+  #editor-submit-button:active {
+    color: mat.get-color-from-palette($submit-palette, '400-contrast');
+    background-color: mat.get-color-from-palette($submit-palette, 400); 
+  }
+
+  #editor-delete-button {
+    color: mat.get-color-from-palette($warn-palette, '600-contrast');
+    background-color: mat.get-color-from-palette($warn-palette, 600); 
+  }
+
+  #editor-delete-button:hover {
+    color: mat.get-color-from-palette($warn-palette, '900-contrast');
+    background-color: mat.get-color-from-palette($warn-palette, 900);
+  }
+
+  #editor-delete-button:active {
+    color: mat.get-color-from-palette($warn-palette, '400-contrast');
+    background-color: mat.get-color-from-palette($warn-palette, 400); 
+  }
+
+  
+}
+
+@mixin typography($theme) {
+  // Get the typography config from the theme.
+  $typography-config: mat.get-typography-config($theme);
+
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  $typography-config: mat.get-typography-config($theme);
+  @if $typography-config != null {
+    @include typography($theme);
+  }
+}

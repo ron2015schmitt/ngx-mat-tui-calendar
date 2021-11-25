@@ -1,0 +1,112 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+@use 'ngx-mat-tui-calendar-editor-dialog/ngx-mat-tui-calendar-editor-dialog.component.theme.scss' as tui-calendar-popup;
+@use 'ngx-mat-tui-calendar-wrapper/ngx-mat-tui-calendar-wrapper.component.theme.scss' as tui-calendar-wrapper;
+
+
+
+@function rgba-to-rgb($rgba, $background: #fff) {
+  @return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map.get($color-config, 'accent');
+  $warn-palette: map.get($color-config, 'warn');
+  $darkMode: map.get($color-config, 'is-dark');
+  $foreground-palette: map.get($color-config, foreground);
+  $background-palette: map.get($color-config, background);
+  $background-color: mat.get-color-from-palette($background-palette, dialog);
+  $divider-color: rgba-to-rgb(mat.get-color-from-palette($foreground-palette, divider), $background-color);
+
+  #theme-primary {
+    color: mat.get-color-from-palette($primary-palette);
+  }
+  #theme-highlight {
+    @if($darkMode) {
+      color: mat.get-color-from-palette($accent-palette);
+    } @else {
+      color: mat.get-color-from-palette($primary-palette);
+    }
+  }
+  #theme-primary-shaded {
+    @if($darkMode) {
+      color: rgba(mat.get-color-from-palette($primary-palette), 0.5);
+    } @else {
+      color: rgba(mat.get-color-from-palette($primary-palette), 0.05);
+    }
+  }
+  #theme-accent {
+    color: mat.get-color-from-palette($accent-palette);
+  }
+  #theme-warn {
+    color: mat.get-color-from-palette($warn-palette);
+  }
+  #theme-foreground {
+    color: mat.get-color-from-palette($foreground-palette, text);
+  }
+  #theme-divider {
+    color: $divider-color;
+  }
+  #theme-background {
+    color: $background-color;
+  }
+
+  .mat-button.navigation-button:hover {
+    background-color: mat.get-color-from-palette($primary-palette, 900); 
+  }
+  
+  .mat-button.navigation-button:active {
+    color: mat.get-color-from-palette($accent-palette);
+  }
+
+  .mat-button-toggle.view-button {
+    color: mat.get-color-from-palette($primary-palette, '700-contrast');
+    background-color: mat.get-color-from-palette($primary-palette, 700);
+  }
+
+  .mat-button-toggle.view-button:hover {
+    background-color: mat.get-color-from-palette($primary-palette, 900);
+  }
+  
+  .mat-button-toggle-checked.view-button {
+    color: mat.get-color-from-palette($accent-palette, '700-contrast');
+    background-color: mat.get-color-from-palette($accent-palette, 700);
+  }
+  
+  .mat-button-toggle-checked.view-button:hover {
+    color: mat.get-color-from-palette($accent-palette, '700-contrast');
+    background-color: mat.get-color-from-palette($accent-palette, 900);
+  }
+  
+  
+}
+
+@mixin typography($theme) {
+  // Get the typography config from the theme.
+  $typography-config: mat.get-typography-config($theme);
+
+  .event-calendar-title {
+    font-family: mat.font-family($typography-config);
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+
+  $typography-config: mat.get-typography-config($theme);
+  @if $typography-config != null {
+    @include typography($theme);
+  }
+
+  @include tui-calendar-popup.theme($theme);
+  @include tui-calendar-wrapper.theme($theme);
+
+}
