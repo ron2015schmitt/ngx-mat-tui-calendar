@@ -1,7 +1,7 @@
 
 ![ngx-mat-tui-calendar](https://user-images.githubusercontent.com/11559541/141514000-da6e6c8a-e00b-4f27-a8c2-b7f28538b2f0.png)
 
-[![Development Status](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) 
+[![Development Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub stars](https://img.shields.io/github/stars/ron2015schmitt/ngx-mat-tui-calendar.svg)](https://github.com/ron2015schmitt/ngx-mat-tui-calendar/stargazers)
@@ -13,7 +13,6 @@
 
 # ngx-mat-tui-calendar
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Work In Progress`
 This project is an Angular, Material Design wrapper for the [Toast UI Calendar](https://github.com/nhn/tui.calendar).
 * Material Design theming
 * Material Design buttons and dialog
