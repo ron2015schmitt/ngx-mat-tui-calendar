@@ -1,1 +1,66 @@
-<p>ngx-mat-tui-calendar-editor-dialog works!</p>
+<div [className]="data.themeClass + ' ' + 'event-editor'">
+    <form id="my-form" [formGroup]="eventForm" class="event-editor-form" (submit)="onSave(postForm);" #postForm="ngForm">
+      <div class="grid-wrapper">
+        <div class="grid-title">
+          <mat-form-field [color]="color" class="editor-title">
+            <input matInput type="text" name="title" formControlName="title" placeholder="Title">
+            <!-- <mat-error style="height: fit-content;" *ngIf="title.invalid">Please enter a title (of 1 characters or more)
+              for
+              your event.</mat-error> -->
+          </mat-form-field>
+        </div>
+        <div class="grid-location">
+          <mat-form-field [color]="color" class="editor-location">
+            <input matInput type="location" name="location" formControlName="location" placeholder="Location">
+          </mat-form-field>
+        </div>
+        <div class="grid-radios" style="display: flex;">
+          <mat-radio-group [color]="color" aria-label="Select an option"  style="margin-bottom: 1em;" name="scheduleType"
+            formControlName="scheduleType" required>
+            <mat-radio-button value="all-day" (change)="onUseAllDay()" id="button-all-day" [color]="color" class="radio-button">All Day
+            </mat-radio-button>
+            <mat-radio-button value="time-slot" (change)="onUseTimeSlot()" id="button-time-slot" [color]="color" class="radio-button">Time Slot
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="grid-date">
+          <mat-form-field *ngIf="isAllDay" [color]="color" class="date-range-form-field" appearance="fill">
+            <mat-label [color]="color">Pick a Date Range</mat-label>
+            <mat-date-range-input [color]="color" [panelClass]="data.themeClass" [rangePicker]="rangePicker" #dateRangeInput>
+              <input matStartDate placeholder="Start date" formControlName="start" name="start">
+              <input matEndDate placeholder="End date" formControlName="end" name="end">
+            </mat-date-range-input>
+           <mat-datepicker-toggle [color]="color" [panelClass]="data.themeClass" matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+            <mat-date-range-picker [color]="color" class="picker" #rangePicker></mat-date-range-picker>
+          </mat-form-field>
+          <mat-form-field [color]="color" *ngIf="!isAllDay" class="date-form-field" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="dpicker" formControlName="date" name="date">
+            <mat-datepicker-toggle [color]="color" matSuffix [for]="dpicker"></mat-datepicker-toggle>
+            <mat-datepicker [color]="color" #dpicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div *ngIf="!isAllDay" class="grid-time time-slot">
+          <mat-form-field [color]="color" class="form-field-time" appearance="fill">
+            <mat-label>Start</mat-label>
+            <input matTimepicker [color]="color" [strict]="false" id="timepicker-start" mode="12h" formControlName="time1" name="time1"
+              placeholder="Please select time...">
+          </mat-form-field>
+          <mat-form-field [color]="color" class="form-field-time" appearance="fill">
+            <mat-label>End</mat-label>
+            <input matTimepicker [color]="color" [strict]="false" id="timepicker-end" mode="12h" formControlName="time2" name="time2"
+              placeholder="Please select time...">
+          </mat-form-field>
+        </div>
+        <div *ngIf="!isAllDay" class="grid-error">
+          <label *ngIf="eventForm.invalid">{{ eventForm.errors?.dates }}</label>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="editor-footer">
+        <button mat-raised-button [color]="color" id="editor-submit-button" type="submit" style="margin-right: 4px;">SAVE</button>
+        <button mat-raised-button id="editor-delete-button" type="button" (click)="onDelete()" *ngIf="(data.schedule.id!=null)">DELETE</button>
+        <button mat-raised-button id="editor-cancel-button" type="button" (click)="onCancel()">CANCEL</button>
+      </div>
+    </form>
+  </div>

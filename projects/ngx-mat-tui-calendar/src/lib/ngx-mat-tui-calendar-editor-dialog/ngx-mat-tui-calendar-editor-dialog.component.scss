@@ -1,0 +1,112 @@
+
+.event-editor {
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  max-width: 425px;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 110px 290px;
+  grid-template-rows: 50px 50px 70px 70px 20px;
+  gap: 2px;
+}
+.grid-title {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+.grid-location {
+  grid-column: 1/3;
+  grid-row: 2;
+}
+.grid-radios {
+  grid-column: 1;
+  grid-row: 3;
+}
+.grid-date {
+  grid-column: 2;
+  grid-row: 3;
+}
+.grid-time {
+  grid-column: 2;
+  grid-row: 4;
+}
+.grid-error {
+  grid-column: 1/3;
+  grid-row: 5;
+}
+ 
+
+.editor-title {
+  width: 100%;
+  margin-bottom: auto;
+}
+.editor-location {
+  width: 100%;
+  margin-bottom: auto;
+}
+
+.editor-footer {
+  justify-self: right;
+  align-self: center;
+  margin-top: 0.5rem;
+  height: 40px;
+}
+
+#editor-cancel-button {
+  float: right;
+}
+
+#editor-action-button {
+}
+
+#editor-delete-button {
+}
+
+.date-range-form-field {
+  width: 290px;
+}
+
+.date-form-field {
+  width: 290px;
+}
+
+.time-slot {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-field-time {
+  width: 140px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-right: 10px;
+}
+
+.form-field-time-wrapper {
+  width: 140px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 10px;
+}
+
+.radio-button {
+  width: 120px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.grid-error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+

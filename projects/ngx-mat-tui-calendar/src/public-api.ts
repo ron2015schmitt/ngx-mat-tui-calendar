@@ -5,3 +5,7 @@
 export * from './lib/ngx-mat-tui-calendar.service';
 export * from './lib/ngx-mat-tui-calendar.component';
 export * from './lib/ngx-mat-tui-calendar.module';
+export * from './lib/calendar-options';
+export * from './lib/calendar-editor-options';
+export * from './lib/local-date';
+

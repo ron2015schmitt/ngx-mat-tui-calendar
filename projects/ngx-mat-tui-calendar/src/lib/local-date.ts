@@ -2,6 +2,8 @@
 // import { TZDate } from 'tui-calendar';
 
 export class LocalDate {
+  date: Date;
+
   // month = 1 to 12
   constructor(args) {
     let numbers;
@@ -38,7 +40,7 @@ export class LocalDate {
       })
     );
     if (matches.length != 1) {
-      console.error(`dateIn: unknown date format: ${obj}`);
+      console.error(`dateIn: unknown date format: ${str}`);
       return null;
     }
     return matches[0];

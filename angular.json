@@ -37,12 +37,6 @@
     "quickstart": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
       },
       "root": "projects/quickstart",
       "sourceRoot": "projects/quickstart/src",
