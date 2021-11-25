@@ -1,0 +1,130 @@
+// https://material.angular.io/guide/theming-your-components
+
+@use 'sass:map';
+@use "@angular/material" as mat;
+// @use '@mat-ngx-tui-calendar.component-theme' as tui-calendar;
+
+@include mat.core();
+@include mat.strong-focus-indicators();
+
+@function light-theme-foreground($color) {
+    @return (
+        base:              $color,
+        divider:           rgba(black, 0.12),
+        dividers:          rgba(black, 0.12),
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.38),
+        disabled-text:     rgba($color, 0.38),
+        elevation:         black,
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.54),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 0.87),
+        slider-min:        rgba($color, 0.87),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+    );
+};
+
+@function dark-theme-foreground($color) {
+    @return (
+        base:              $color,
+        divider:           rgba(white, 0.12),
+        dividers:          rgba(white, 0.12),
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.38),
+        disabled-text:     rgba($color, 0.38),
+        elevation:         black,
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.74),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 0.87),
+        slider-min:        rgba($color, 0.87),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+    );
+};
+
+// $dark-theme-background-palette: (
+//   status-bar: black,
+//   app-bar:    map.get($grey-palette, 900),
+//   background: #303030,
+//   hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+//   card:       map.get($grey-palette, 800),
+//   dialog:     map.get($grey-palette, 800),
+//   disabled-button: rgba(white, 0.12),
+//   raised-button: map.get($grey-palette, 800),
+//   focused-button: $light-focused,
+//   selected-button: map.get($grey-palette, 900),
+//   selected-disabled-button: map.get($grey-palette, 800),
+//   disabled-button-toggle: black,
+//   unselected-chip: map.get($grey-palette, 700),
+//   disabled-list-option: black,
+//   tooltip: map.get($grey-palette, 700),
+// );
+
+
+// indigo-pink
+// $light-primary: mat.define-palette(mat.$indigo-palette);
+// $light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// purple-green
+$light-primary: mat.define-palette(mat.$teal-palette, 700, 500, 900);
+$light-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+$light-warn: mat.define-palette(mat.$red-palette, A200, A100, A400);
+
+$light-theme-base: mat.define-light-theme(
+    (
+        color: (
+            primary: $light-primary,
+            accent: $light-accent,
+            warn: $light-warn,
+        ),
+    )
+);
+
+$light-foreground: light-theme-foreground(mat.get-color-from-palette($light-accent, 900));
+$light-theme: map-merge($light-theme-base, (foreground: $light-foreground));
+
+
+// top level html of app should have this class, eg <section class="light-theme">
+.light-theme {
+    @include mat.all-component-themes($light-theme);
+    // @include tui-calendar.theme($light-theme);
+    // @include mat.strong-focus-indicators-theme($light-theme);
+    // @include mat.strong-focus-indicators-theme(green);
+}
+
+
+// deeppurple-amber
+$dark-primary: mat.define-palette(mat.$blue-grey-palette, 800, 700, 900);
+$dark-accent: mat.define-palette(mat.$teal-palette);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+// https://stackoverflow.com/questions/43438305/how-to-change-font-color-of-primary-palette-in-angular-material2
+
+$dark-theme-base: mat.define-dark-theme(
+    (
+        color: (
+            primary: $dark-primary,
+            accent: $dark-accent,
+            warn: $dark-warn,
+        ),
+    )
+);
+
+
+
+$dark-foreground: dark-theme-foreground(mat.get-color-from-palette($dark-accent, 900));
+$dark-background: mat.$dark-theme-background-palette;
+$dark-theme: map-merge($dark-theme-base, (foreground: $dark-foreground), (background: $dark-background));
+
+
+// top level html of app should have this class, eg <section class="light-theme">
+.dark-theme {
+    @include mat.all-component-themes($dark-theme);
+    // @include tui-calendar.theme($dark-theme);
+    // @include mat.strong-focus-indicators-theme($dark-theme);
+}
