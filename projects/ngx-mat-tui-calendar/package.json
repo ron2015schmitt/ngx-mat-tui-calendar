@@ -1,19 +1,42 @@
 {
   "name": "ngx-mat-tui-calendar",
-  "version": "1.0.0",
+  "version": "12.0.0",
+  "author": "ron schmitt",
+  "license": "MIT",
+  "description": "Angular Material Design wrapper, supporting theming, for the Toast UI Calendar, suitable for web-based scheduling, events, appointments, and day planner applications.",
+  "keywords": [
+    "angular",
+    "angular-material",
+    "ngx",
+    "mat",
+    "material-design",
+    "calendar",
+    "calendar-component",
+    "calendar-events",
+    "tui",
+    "tui-calendar"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ron2015schmitt/ngx-mat-tui-calendar.git"
   },
-  "keywords": [
-    ""
-  ],
-  "author": "ron schmitt",
-  "license": "MIT",
+  "homepage": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar#readme",
+  "main": "src/public.api.js",
+  "runkitExampleFilename": "runkit/test.js",
   "bugs": {
     "url": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar/issues"
   },
-  "homepage": "https://github.com/ron2015schmitt/ngx-mat-tui-calendar#readme",
+  "directories": {
+    "runkit": "runkit"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve demo",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
   "peerDependencies": {
     "@angular/animations": "^12.2.12",
     "@angular/common": "^12.2.12",

@@ -1,20 +1,20 @@
 
 ![ngx-mat-tui-calendar](https://user-images.githubusercontent.com/11559541/141514000-da6e6c8a-e00b-4f27-a8c2-b7f28538b2f0.png)
 
-[![Development Status](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip) 
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Development Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
 [![GitHub stars](https://img.shields.io/github/stars/ron2015schmitt/ngx-mat-tui-calendar.svg)](https://github.com/ron2015schmitt/ngx-mat-tui-calendar/stargazers)
 ![GitHub downloads all releases](https://img.shields.io/github/downloads/ron2015schmitt/ngx-mat-tui-calendar/total)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ron2015schmitt/ngx-mat-tui-calendar)
 
-![npm](https://img.shields.io/npm/v/ngx-mat-tui-calendar?label=npm%20package)
+[![npm](https://img.shields.io/npm/v/ngx-mat-tui-calendar?label=npm%20package)](https://www.npmjs.com/package/ngx-mat-tui-calendar)
 ![npm downloads](https://img.shields.io/npm/dt/ngx-mat-tui-calendar?label=npm%20downloads)
 
 # ngx-mat-tui-calendar
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `Work In Progress`
-This project is an Angular, Material Design wrapper for the [Toast UI Calendar](https://github.com/nhn/tui.calendar).
+This project is an [Angular](https://angular.io/), [Material Design](https://material.angular.io/) wrapper for the [Toast UI Calendar](https://github.com/nhn/tui.calendar), published via [![npm-logo_1-tiny](https://user-images.githubusercontent.com/11559541/144652561-1593db94-2901-43db-aa9c-80616f4eab0f.png)
+](https://www.npmjs.com/package/ngx-mat-tui-calendar).
+
 * Material Design theming
 * Material Design buttons and dialog
 * Responsive to mobile devices
@@ -22,7 +22,12 @@ This project is an Angular, Material Design wrapper for the [Toast UI Calendar](
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
-Using Angular 12 which requires node ^v14.15 (npm ^v6.14)
+Curently using Angular ^12.2, which requires node ^v14.15 (npm ^v6.14).
+
+
+
+
+
 
 # UI
 ## Month View
