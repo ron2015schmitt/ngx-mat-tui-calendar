@@ -466,7 +466,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     const el = document.getElementById(`theme-${name}`);
     if (el) {
       const style = window.getComputedStyle(el, null);
-      console.warn(`color:`, style.color);
+      console.warn(`theme-${name} color:`, style.color);
       return style.color;
     }
     return '';
