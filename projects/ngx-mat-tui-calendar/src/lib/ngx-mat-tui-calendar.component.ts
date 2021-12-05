@@ -68,16 +68,20 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   @Output() userUpdatedSchedule: EventEmitter<ISchedule> = new EventEmitter();
   @Output() userDeletedSchedule: EventEmitter<ISchedule> = new EventEmitter();
   @Input() options: CalendarOptions;
+  appliedOptions: CalendarOptions; // this is needed for when options is not connected
 
   constructor(private dialog: MatDialog) {
     // we slice off the first color since it is gray
     this.colors = distinctColors({ lightMin: 70, count: 15 }).slice(1);
     this.colorIndex = 0;
     this.calendarId = uuidv4();
+
+    this.appliedOptions = this.getDefaultOptions();
   }
 
   ngOnInit() {
-    this.createTUICalendar(null);
+    console.warn(`calendar.component.ts: ngOnit`)
+    this.createTUICalendar();
     this.bindCallbacks();
   }
 
@@ -88,13 +92,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
       if (changes.options) {
         console.warn(`change.option:`, changes.options);
         let options = changes.options.currentValue;
-        if (!options.theme) {
-          options.theme = this.getDefaultTheme();
-        }
-        console.warn(`TUI theme:`, options.theme);
-        this.calendar.setOptions(options.ioptions as IOptions);
-        this.calendar.setTheme(options.theme);
-        this.calendar.render(true);
+        this.setOptions(options);
       }
     }
 
@@ -183,8 +181,11 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     return str;
   }
 
-  createTUICalendar(options: IOptions) {
-    this.calendar = new Calendar('#calendar', this.prerocessOptions(options));
+  createTUICalendar() {
+    let ioptions = this.preprocessIOptions(null);
+    console.warn(`calendar.component.ts: createTUICalendar: ioptions:`, ioptions);
+    this.calendar = new Calendar('#calendar', ioptions);
+    console.warn(`calendar.component.ts: createTUICalendar: this.calendar:`, this.calendar);
   }
 
 
@@ -364,9 +365,11 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   openPopupScheduleEditor(schedule: ISchedule) {
     // console.log('openPopupScheduleEditor: calevent:', schedule);
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.panelClass = this.options.themeClass;
-    console.warn(`options: `, this.options);
-    dialogConfig.data = { schedule, darkMode: this.options.darkMode, themeClass: this.options.themeClass } as CalendarEditorOptions;
+    if (this.appliedOptions.themeClass) {
+      dialogConfig.panelClass = this.appliedOptions.themeClass;
+    }
+    console.warn(`options: `, this.appliedOptions);
+    dialogConfig.data = { schedule, darkMode: this.appliedOptions.darkMode, themeClass: this.appliedOptions.themeClass } as CalendarEditorOptions;
     dialogConfig.autoFocus = true;
     const dialogRef = this.dialog.open(NgxMatTuiCalendarEditorDialogComponent, dialogConfig);
     // const dialogRef = this.dialog.open(NgxMatTuiCalendarScheduleEditorDialogComponent, {
@@ -392,24 +395,48 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     });
   }
 
-  setOptions(options: IOptions) {
-    this.calendar.setOptions(this.prerocessOptions(options));
-  }
 
-  prerocessOptions(options: IOptions): IOptions {
-    let defs = this.getDefaultOptions();
+  setOptions(options: CalendarOptions) {
     if (options == null) {
-      options = defs;
-    } else {
-      options = { ...defs, ...options };
+      options = this.getDefaultOptions();
     }
-    options.useCreationPopup = false;
-    options.useDetailPopup = false;
-    return options;
+    options.ioptions = this.setIOptions(options.ioptions);
+    this.appliedOptions = {...options};
+  }
+
+  setIOptions(ioptionsIn: IOptions) {
+    let ioptions = this.preprocessIOptions(ioptionsIn);
+    this.calendar.setOptions(ioptions);
+    this.calendar.setTheme(ioptions.theme);
+    this.calendar.render(true);
+    return ioptions;
+  }
+
+  preprocessIOptions(ioptions: IOptions): IOptions {
+    let defs: IOptions = this.getDefaultIOptions();
+    if (ioptions == null) {
+      ioptions = defs;
+    } else {
+      ioptions = { ...defs, ...ioptions };
+    }
+    ioptions.useCreationPopup = false;
+    ioptions.useDetailPopup = false;
+    if (!ioptions.theme) {
+      ioptions.theme = this.getDefaultTheme();
+    }
+    return ioptions;
   }
 
 
-  getDefaultOptions(): IOptions {
+  getDefaultOptions(): CalendarOptions {
+    return {
+      darkMode: false,
+      themeClass: null,
+      ioptions: this.getDefaultIOptions(),
+    } as CalendarOptions;
+  }
+
+  getDefaultIOptions(): IOptions {
     return {
       defaultView: 'month',
       taskView: true,

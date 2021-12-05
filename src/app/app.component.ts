@@ -47,15 +47,15 @@ export class AppComponent implements OnInit {
 
   constructor(private overlay: Overlay) {
     this.overlay.create();
-    this.setDarkMode(this.darkMode);
+    // this.setDarkMode(this.darkMode);
   }
 
 
 
   ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((darkMode) => {
-      this.setDarkMode(darkMode);
-    });
+    // this.toggleControl.valueChanges.subscribe((darkMode) => {
+    //   this.setDarkMode(darkMode);
+    // });
   }
 
   setDarkMode(darkMode: boolean) {
@@ -76,29 +76,30 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // put in the initial schedules
-    let schedules: ISchedule[] = this.getSomeSchedules();
-    schedules = this.calendarComponent.createSchedules(schedules);
-    for (let schedule of schedules) {
-      this.schedules.set(schedule.id, schedule);
-    }
+    // // put in the initial schedules
+    // let schedules: ISchedule[] = this.getSomeSchedules();
+    // console.warn(this.calendarComponent)
+    // schedules = this.calendarComponent.createSchedules(schedules);
+    // for (let schedule of schedules) {
+    //   this.schedules.set(schedule.id, schedule);
+    // }
 
-    // -->code below here can be cut
-    this.examples();
+    // // -->code below here can be cut
+    // this.examples();
 
 
-    // uncomment below to see calendar options change after 3 secs
+    // // uncomment below to see calendar options change after 3 secs
 
-    // setTimeout(() => {
-    //   console.log("change options");
-    //   // the following will cause ngOnChanges to fire even if shallow (ie top-level) properties not change
-    //   let options = { ...this.options };
-    //   options.ioptions.month.narrowWeekend = true;
-    //   options.ioptions.week.narrowWeekend = true;
-    //   this.options = options;
-    // }, 3000);
+    // // setTimeout(() => {
+    // //   console.log("change options");
+    // //   // the following will cause ngOnChanges to fire even if shallow (ie top-level) properties not change
+    // //   let options = { ...this.options };
+    // //   options.ioptions.month.narrowWeekend = true;
+    // //   options.ioptions.week.narrowWeekend = true;
+    // //   this.options = options;
+    // // }, 3000);
     
-    // <---code above here can be cut
+    // // <---code above here can be cut
 
   }
 
