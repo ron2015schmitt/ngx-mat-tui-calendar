@@ -1,20 +1,21 @@
 <section [className]="themeClass">
 
-    <!-- make visible once issues with dark mode are fixed -->
-    <div style="display: none;">
-      <mat-toolbar color="primary">
-        <div class="flex-stretch"></div>
-        <mat-icon class="mr-8">wb_sunny</mat-icon>
-        <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
-        </mat-slide-toggle>
-        <mat-icon>bedtime</mat-icon>
-      </mat-toolbar>
-    </div>
-  
-    <ngx-mat-tui-calendar #matTuiCalendarNgx 
+  <!-- make visible once issues with dark mode are fixed -->
+  <div style="display: none;">
+    <mat-toolbar color="primary">
+      <div class="flex-stretch"></div>
+      <mat-icon class="mr-8">wb_sunny</mat-icon>
+      <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+      </mat-slide-toggle>
+      <mat-icon>bedtime</mat-icon>
+    </mat-toolbar>
+  </div>
+
+  <ngx-mat-tui-calendar #matTuiCalendarNgx 
       (userCreatedSchedule)="onUserCreatedSchedule($event)"
       (userUpdatedSchedule)="onUserUpdatedSchedule($event)" 
       (userDeletedSchedule)="onUserDeletedSchedule($event)"
       [options]="options">
-    </ngx-mat-tui-calendar>
-  </section>
+  </ngx-mat-tui-calendar>
+
+</section>

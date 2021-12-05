@@ -56,6 +56,9 @@
     color: $background-color;
   }
 
+  .event-calendar-title {
+  }
+
   .mat-button.navigation-button:hover {
     background-color: mat.get-color-from-palette($primary-palette, 900); 
   }
