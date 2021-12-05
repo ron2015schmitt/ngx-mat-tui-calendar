@@ -11,5 +11,10 @@
       </mat-toolbar>
     </div>
   
-    <ngx-mat-tui-calendar></ngx-mat-tui-calendar>
+    <ngx-mat-tui-calendar #matTuiCalendarNgx 
+      (userCreatedSchedule)="onUserCreatedSchedule($event)"
+      (userUpdatedSchedule)="onUserUpdatedSchedule($event)" 
+      (userDeletedSchedule)="onUserDeletedSchedule($event)"
+      [options]="options">
+    </ngx-mat-tui-calendar>
   </section>

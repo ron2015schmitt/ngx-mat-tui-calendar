@@ -11,18 +11,12 @@
   $warn-palette: map.get($color-config, 'warn');
   $darkMode: map.get($color-config, 'is-dark');
 
-  .my-class {
-    background-color: mat.get-color-from-palette($primary-palette, 900); 
-  }  
 }
 
 @mixin typography($theme) {
   // Get the typography config from the theme.
   $typography-config: mat.get-typography-config($theme);
 
-  .my-class {
-    font-family: mat.font-family($typography-config);
-  }
 }
 
 @mixin theme($theme) {
