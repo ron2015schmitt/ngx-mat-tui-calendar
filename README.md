@@ -105,6 +105,18 @@ Selector: `ngx-mat-tui-calendar`
   
 # Development 
 
+## Getting started
+
+```bash
+git clone https://github.com/ron2015schmitt/ngx-mat-tui-calendar
+cd ngx-mat-tui-calendar
+npm install
+ng build  
+ng serve
+```
+Point your browser to http://localhost:4200/
+  
+  
 ## library package for ngx-mat-tui-calendar
 
 The code that makes up the npm package is located in folder ```projects/ngx-mat-tui-calendar```.
@@ -119,7 +131,7 @@ The API is defined in ```projects/ngx-mat-tui-calendar/src/public-api.ts```.
 
 ### Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/ngx-mat-tui-calendar` directory.
+Run `ng build` to build the library project. The build artifacts will be stored in the `dist/ngx-mat-tui-calendar` directory.
 
 ### README
 
