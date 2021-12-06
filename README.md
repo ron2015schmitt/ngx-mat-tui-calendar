@@ -61,14 +61,17 @@ Insert the following HTML into one of your app's template files
 <mat-tui-calendar></mat-tui-calendar>
 ```
 
-## Quickstart Project
-*TODO* 
+### Quickstart Project
+
+A demonstration of the usage described above usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
 
 ## Demo Project
-*TODO* 
+
+A more extensive demonstration of usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-demo
+
 
 ### Stackblitz
-*TODO* 
+*Coming soon*
 
 # Documentation
 
