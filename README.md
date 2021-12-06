@@ -50,15 +50,21 @@ Install via npm:
 ```bash
 npm i --save ngx-mat-tui-calendar
 ```
+which will add `ngx-mat-tui-calendar`, as well as all of its dependencies to your `package.json` file.
+
 Next import the module into your app's ```app.module.ts```:
 ```typescript
 import {NgxMatTuiCalendarModule} from 'ngx-mat-tui-calendar';
 ```
 Then add `NgxMatTuiCalendarModule` to your list of NgModule imports, in ```app.module.ts```
 
-Insert the following HTML into one of your app's template files
+Insert the following HTML into your app's template file
 ```angular2html
 <mat-tui-calendar></mat-tui-calendar>
+```
+Set up an [Angular theme](https://material.angular.io/guide/theming).  For example add the following line to the top of your `src/styles.scss` file
+```typescript
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 ```
 
 ### Quickstart Project
