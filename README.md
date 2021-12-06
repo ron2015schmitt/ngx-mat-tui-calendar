@@ -20,13 +20,13 @@ This project is an [Angular](https://angular.io/), [Material Design](https://mat
 * Responsive to mobile devices
 * Dark mode in progress...
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
+This repo contains two projects:
+1. the npm library called `ngx-mat-tui-calendar`, located in `projects/ngx-mat-tui-calendar`
+2. the demo app, located in `src`
 
-Curently using Angular ^12.2, which requires node ^v14.15 (npm ^v6.14).
+The top-level `angular.json` and `package.json` files are used for building both projects.
 
-
-
-
+This repo was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.  Angular ^12.2 requires node ^v14.15 (npm ^v6.14).
 
 
 # UI
@@ -53,32 +53,32 @@ npm i --save ngx-mat-tui-calendar
 Next import the module into your app's ```app.module.ts```:
 ```typescript
 import {NgxMatTuiCalendarModule} from 'ngx-mat-tui-calendar';
-
-@NgModule({
-  imports: [NgxMatTuiCalendarModule]
-})
-
 ```
+Then add `NgxMatTuiCalendarModule` to your list of NgModule imports, in ```app.module.ts```
 
 Insert the following HTML into one of your app's template files
 ```angular2html
 <mat-tui-calendar></mat-tui-calendar>
 ```
 
-## Demo Project
+## Quickstart Project
+*TODO* 
 
-## Stackblitz
+## Demo Project
+*TODO* 
+
+### Stackblitz
+*TODO* 
 
 # Documentation
 
 ## MatTuiCalendar
 
-Directive responsible for managing the timepicker popup and setting value to input
 
-Selector: `mat-tui-calendar`
+Selector: `ngx-mat-tui-calendar`
 
 ```typescript
-  <mat-tui-calendar #tuiCalendar 
+  <ngx-mat-tui-calendar #tuiCalendar 
     (userCreatedSchedule)="onUserCreatedSchedule($event)"
     (userUpdatedSchedule)="onUserUpdatedSchedule($event)"
     (userDeletedSchedule)="onUserDeletedSchedule($event)"
@@ -91,45 +91,62 @@ Selector: `mat-tui-calendar`
 | Name | Description |
 |------|-------------|
 | @Input()
-  ngxMatTimepicker: NgxMatTimepickerComponent | The timepicker that this input is associated with. |
-| @Input()
-  color: ThemePalette | The material palette to use. | 
-| @Input()
-  disabled: boolean | Weather the timepicker popup should be disabled. |
-| @Input()
-  value: string | Set a default value and time for a timepicker. The format of the time is in 12 hours notation `11:00 PM` or in 24 hours notation `23:00`. A Date string won't work. |
-| @Input()
-  format: number | `12` or `24` . 12h/24h view for hour selection clock . `12` (AM/PM) format by default. |
-| @Input()
-  min: string or DateTime | Set min time for timepicker (`11:15 pm` ) |
-| @Input()
-  max: string or DateTime | Set max time for timepicker (`11:15 pm` ) |
-| @Input()
-  disableClick: boolean | Set `true` to disable opening timepicker by clicking on the input |
+  options: CalendarOptions | The options object for the calendar. | 
+| @Output()
+  userCreatedSchedule: EventEmitter<ISchedule> | Event emitter that emits when the user creates a new "schedule" (ie calendar task). |
+| @Output()
+  userUpdatedSchedule: EventEmitter<ISchedule> | Event emitter that emits when the user updates a "schedule" (ie calendar task). |
+| @Output()
+  userDeletedSchedule: EventEmitter<ISchedule> | Event emitter that emits when the user deletes a "schedule" (ie calendar task). |
 
   
 # Development 
 
-## Development server
+## library package for ngx-mat-tui-calendar
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The code that makes up the npm package is located in folder ```projects/ngx-mat-tui-calendar```.
 
-## Code scaffolding
+After making changes, increment the version in ```projects/ngx-mat-tui-calendar/package.json```.  We use the convention that the major version number corresponds to the major version of Angular used. The minor and patch versions are specific to this package.
+  
+The top-level `angular.json` file defines the build process for the library.  The top-level `package.json` must include all the peer dependencies in `projects/ngx-mat-tui-calendar/package.json`.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### API 
 
-## Build
+The API is defined in ```projects/ngx-mat-tui-calendar/src/public-api.ts```.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Build
 
-## Running unit tests
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/ngx-mat-tui-calendar` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### README
 
-## Running end-to-end tests
+The main README file (`README.md`) and the package README file (`projects/ngx-mat-tui-calendar/README.md`) must be manually kept in sync: if you change one, then copy the change to the other.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Publish package to https://npmjs.com/
 
-## Further help
+Change directories to the `dist/ngx-mat-tui-calendar` directory and run the following:
+```bash
+npm login
+npm publish
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### publish source to github
+
+Commit your changes and push to github.com.  Then create a tab and release on github that matches the npm version number.
+
+
+## Demo App
+### Development server
+
+The demo app is defined by the top-level `package.json` file, the top-level `angular.json` file and the contents of the `src` folder.
+  
+Run `ng serve demo` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.  
+  
+However, if you change the library files, in directory `projects/ngx-mat-tui-calendar`, you need to 
+  1. Rebuild the library using `ng build`
+  2. Kill the dev server by typing `Ctrl-C` in the terminal where you are running `ng serve demo`
+  3. Run `ng serve demo` to restart the dev server
+
+*Step 2 is usually necessary! You will get spurious errors without killing and restarting the server.*
+
+
