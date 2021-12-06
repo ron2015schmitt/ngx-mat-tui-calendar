@@ -67,14 +67,13 @@ Set up an [Angular theme](https://material.angular.io/guide/theming).  For examp
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 ```
 
-### Quickstart Project
+### Quickstart Repo
 
-A demonstration of the usage described above usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
+A demonstration of the simple usage described above can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
 
-## Demo Project
+## Demo Repo
 
 A more extensive demonstration of usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-demo
-
 
 ### Stackblitz
 *Coming soon*
