@@ -1,6 +1,6 @@
 {
   "name": "ngx-mat-tui-calendar",
-  "version": "12.0.2",
+  "version": "12.0.3",
   "author": "ron schmitt",
   "license": "MIT",
   "description": "Angular Material Design wrapper, supporting theming, for the Toast UI Calendar, suitable for web-based scheduling, events, appointments, and day planner applications.",
