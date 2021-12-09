@@ -73,6 +73,8 @@ import { NgxMatTuiCalendarEditorDialogComponent } from './ngx-mat-tui-calendar-e
   ],
   entryComponents: [
     NgxMatTuiCalendarComponent,
+    NgxMatTuiCalendarWrapperComponent,
+    NgxMatTuiCalendarEditorDialogComponent,
   ],
 })
 export class NgxMatTuiCalendarModule { }
