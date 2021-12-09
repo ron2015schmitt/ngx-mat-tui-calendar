@@ -70,7 +70,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   @Input() options: CalendarOptions;
   appliedOptions: CalendarOptions; // this is needed for when options is not connected
 
-  constructor(private dialog: MatDialog) {
+  constructor(public dialog: MatDialog) {
     // we slice off the first color since it is gray
     this.colors = distinctColors({ lightMin: 70, count: 15 }).slice(1);
     this.colorIndex = 0;

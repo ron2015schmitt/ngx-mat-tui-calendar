@@ -30,7 +30,7 @@ export class NgxMatTuiCalendarEditorDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: CalendarEditorOptions,
-    private dialogRef: MatDialogRef<NgxMatTuiCalendarEditorDialogComponent>,
+    public dialogRef: MatDialogRef<NgxMatTuiCalendarEditorDialogComponent>,
   ) {
     // console.log('NgxMatTuiCalendarEditorDialogComponent.constructor: schedule:', schedule);
 
