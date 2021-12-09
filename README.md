@@ -21,7 +21,7 @@ This project is an [Angular](https://angular.io/), [Material Design](https://mat
 * Dark mode in progress...
 
 This repo contains two projects:
-1. the npm library called `ngx-mat-tui-calendar`, located in `projects/ngx-mat-tui-calendar`
+1. the source code for the npm library [`ngx-mat-tui-calendar`](https://www.npmjs.com/package/ngx-mat-tui-calendar), located in `projects/ngx-mat-tui-calendar`
 2. the demo app, located in `src`
 
 The top-level `angular.json` and `package.json` files are used for building both projects.
