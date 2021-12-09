@@ -34,7 +34,7 @@ export class NgxMatTuiCalendarEditorDialogComponent implements OnInit {
   ) {
     // console.log('NgxMatTuiCalendarEditorDialogComponent.constructor: schedule:', schedule);
 
-    console.log('NgxMatTuiCalendarEditorDialogComponent.constructor: data:', data);
+    // console.log('NgxMatTuiCalendarEditorDialogComponent.constructor: data:', data);
     this.color = data.darkMode ? 'accent' : 'primary';
 
     const schedule = data.schedule;
@@ -162,7 +162,7 @@ export class NgxMatTuiCalendarEditorDialogComponent implements OnInit {
   }
 
   log(str) {
-    console.warn(str);
+    // console.warn(str);
   }
 
   onUseAllDay() {

@@ -80,17 +80,17 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   }
 
   ngOnInit() {
-    console.warn(`calendar.component.ts: ngOnit`)
+    // console.warn(`calendar.component.ts: ngOnit`)
     this.createTUICalendar();
     this.bindCallbacks();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.warn(changes);
+    // console.warn(changes);
     if (this.calendar) {
 
       if (changes.options) {
-        console.warn(`change.option:`, changes.options);
+        // console.warn(`change.option:`, changes.options);
         let options = changes.options.currentValue;
         this.setOptions(options);
       }
@@ -183,9 +183,9 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
 
   createTUICalendar() {
     let ioptions = this.preprocessIOptions(null);
-    console.warn(`calendar.component.ts: createTUICalendar: ioptions:`, ioptions);
+    // console.warn(`calendar.component.ts: createTUICalendar: ioptions:`, ioptions);
     this.calendar = new Calendar('#calendar', ioptions);
-    console.warn(`calendar.component.ts: createTUICalendar: this.calendar:`, this.calendar);
+    // console.warn(`calendar.component.ts: createTUICalendar: this.calendar:`, this.calendar);
   }
 
 
@@ -368,7 +368,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     if (this.appliedOptions.themeClass) {
       dialogConfig.panelClass = this.appliedOptions.themeClass;
     }
-    console.warn(`options: `, this.appliedOptions);
+    // console.warn(`options: `, this.appliedOptions);
     dialogConfig.data = { schedule, darkMode: this.appliedOptions.darkMode, themeClass: this.appliedOptions.themeClass } as CalendarEditorOptions;
     dialogConfig.autoFocus = true;
     const dialogRef = this.dialog.open(NgxMatTuiCalendarEditorDialogComponent, dialogConfig);
@@ -466,7 +466,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     const el = document.getElementById(`theme-${name}`);
     if (el) {
       const style = window.getComputedStyle(el, null);
-      console.warn(`theme-${name} color:`, style.color);
+      // console.warn(`theme-${name} color:`, style.color);
       return style.color;
     }
     return '';
