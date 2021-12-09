@@ -21,7 +21,7 @@ This project is an [Angular](https://angular.io/), [Material Design](https://mat
 * Dark mode in progress...
 
 This repo contains two projects:
-1. the npm library called `ngx-mat-tui-calendar`, located in `projects/ngx-mat-tui-calendar`
+1. the source code for the npm library [`ngx-mat-tui-calendar`](https://www.npmjs.com/package/ngx-mat-tui-calendar), located in `projects/ngx-mat-tui-calendar`
 2. the demo app, located in `src`
 
 The top-level `angular.json` and `package.json` files are used for building both projects.
@@ -67,14 +67,13 @@ Set up an [Angular theme](https://material.angular.io/guide/theming).  For examp
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 ```
 
-### Quickstart Project
+### Quickstart Repo
 
-A demonstration of the usage described above usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
+A demonstration of the simple usage described above can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
 
-## Demo Project
+## Demo Repo
 
 A more extensive demonstration of usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-demo
-
 
 ### Stackblitz
 *Coming soon*
