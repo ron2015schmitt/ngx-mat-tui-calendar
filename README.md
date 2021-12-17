@@ -48,7 +48,7 @@ This repo was generated with [Angular CLI](https://github.com/angular/angular-cl
 
 Install via npm:
 ```bash
-npm i --save ngx-mat-tui-calendar
+npm i --save ngx-mat-tui-calendar --legacy-peer-deps
 ```
 which will add `ngx-mat-tui-calendar`, as well as all of its dependencies to your `package.json` file.
 
@@ -115,7 +115,7 @@ Selector: `ngx-mat-tui-calendar`
 ```bash
 git clone https://github.com/ron2015schmitt/ngx-mat-tui-calendar
 cd ngx-mat-tui-calendar
-npm install
+npm install --legacy-peer-deps
 ng build  
 ng serve
 ```
