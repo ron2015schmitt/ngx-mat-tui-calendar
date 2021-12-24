@@ -28,19 +28,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTimepickerModule } from 'mat-timepicker';
 
-// project modules
-import { NgxMatTuiCalendarComponent } from './ngx-mat-tui-calendar.component';
-import { NgxMatTuiCalendarWrapperComponent } from './ngx-mat-tui-calendar-wrapper/ngx-mat-tui-calendar-wrapper.component';
-import { NgxMatTuiCalendarEditorDialogComponent } from './ngx-mat-tui-calendar-editor-dialog/ngx-mat-tui-calendar-editor-dialog.component';
-
-
-@NgModule({
-  declarations: [
-    NgxMatTuiCalendarComponent,
-    NgxMatTuiCalendarWrapperComponent,
-    NgxMatTuiCalendarEditorDialogComponent,
-  ],
-  imports: [
+// collect all of the above modules into an array
+const importedModules = [
     BrowserAnimationsModule,
     BrowserModule,
     FlexLayoutModule,
@@ -67,16 +56,35 @@ import { NgxMatTuiCalendarEditorDialogComponent } from './ngx-mat-tui-calendar-e
 
     FontAwesomeModule,
     MatTimepickerModule,
+  ];
+
+
+// project modules
+import { NgxMatTuiCalendarComponent } from './ngx-mat-tui-calendar.component';
+import { NgxMatTuiCalendarWrapperComponent } from './ngx-mat-tui-calendar-wrapper/ngx-mat-tui-calendar-wrapper.component';
+import { NgxMatTuiCalendarEditorDialogComponent } from './ngx-mat-tui-calendar-editor-dialog/ngx-mat-tui-calendar-editor-dialog.component';
+
+const projectModules = [
+    NgxMatTuiCalendarComponent,
+    NgxMatTuiCalendarWrapperComponent,
+    NgxMatTuiCalendarEditorDialogComponent,
+];
+
+
+@NgModule({
+  declarations: [
+    ...projectModules,
+  ],
+  imports: [
+    ...importedModules,
   ],
   exports: [
-    NgxMatTuiCalendarComponent,
-    NgxMatTuiCalendarWrapperComponent,
-    NgxMatTuiCalendarEditorDialogComponent,
+    ...importedModules,
+
+    ...projectModules,
   ],
   entryComponents: [
-    NgxMatTuiCalendarComponent,
-    NgxMatTuiCalendarWrapperComponent,
-    NgxMatTuiCalendarEditorDialogComponent,
+    ...projectModules,
   ],
 })
 export class NgxMatTuiCalendarModule { }
