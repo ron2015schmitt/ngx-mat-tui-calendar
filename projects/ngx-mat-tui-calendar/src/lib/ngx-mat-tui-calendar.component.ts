@@ -193,6 +193,8 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     // console.warn(`calendar.component.ts: createTUICalendar: ioptions:`, ioptions);
     this.calendar = new Calendar('#calendar', ioptions);
     // console.warn(`calendar.component.ts: createTUICalendar: this.calendar:`, this.calendar);
+    this.calendar.toggleScheduleView(true);
+
   }
 
 
@@ -416,6 +418,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     this.calendar.setOptions(ioptions);
     this.calendar.setTheme(ioptions.theme);
     this.calendar.render(true);
+    this.calendar.toggleScheduleView(true);
     return ioptions;
   }
 
