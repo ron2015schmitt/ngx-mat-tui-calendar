@@ -122,18 +122,22 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     date.setMonth(date.getMonth() + months);  // date class does the modular arithmetic
     date.setDate(date.getDate() + days);  // date class does the modular arithmetic
     this.calendar.setDate(date);
+    this.calendar.toggleScheduleView(true);
   }
 
   onCalendarPrev() {
     this.calendar.prev();
+    this.calendar.toggleScheduleView(true);
   }
 
   onCalendarToday() {
     this.calendar.today();
+    this.calendar.toggleScheduleView(true);
   }
 
   onCalendarNext() {
     this.calendar.next();
+    this.calendar.toggleScheduleView(true);
   }
 
   onCalendarLongNext() {
@@ -156,6 +160,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     date.setMonth(date.getMonth() + months);  // date class does the modular arithmetic
     date.setDate(date.getDate() + days);  // date class does the modular arithmetic
     this.calendar.setDate(date);
+    this.calendar.toggleScheduleView(true);
   }
 
 
@@ -164,7 +169,9 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   }
 
   onWeekView() {
+    console.log(`onWeekView`)
     this.calendar.changeView('week');
+    this.calendar.render(true);  // <-- so that selection is cleared
   }
 
   onDayView() {

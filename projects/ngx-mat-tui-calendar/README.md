@@ -4,7 +4,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Development Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) 
 [![GitHub stars](https://img.shields.io/github/stars/ron2015schmitt/ngx-mat-tui-calendar.svg)](https://github.com/ron2015schmitt/ngx-mat-tui-calendar/stargazers)
-![GitHub downloads all releases](https://img.shields.io/github/downloads/ron2015schmitt/ngx-mat-tui-calendar/total)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/ron2015schmitt/ngx-mat-tui-calendar)
 
 [![npm](https://img.shields.io/npm/v/ngx-mat-tui-calendar?label=npm%20package)](https://www.npmjs.com/package/ngx-mat-tui-calendar)
@@ -28,6 +27,9 @@ The top-level `angular.json` and `package.json` files are used for building both
 
 This repo was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.  Angular ^12.2 requires node ^v14.15 (npm ^v6.14).
 
+# Online Demo
+
+https://ngx-mat-tui-calendar-demo.netlify.app/
 
 # UI
 ## Month View
@@ -48,7 +50,7 @@ This repo was generated with [Angular CLI](https://github.com/angular/angular-cl
 
 Install via npm:
 ```bash
-npm i --save ngx-mat-tui-calendar
+npm i --save ngx-mat-tui-calendar --legacy-peer-deps
 ```
 which will add `ngx-mat-tui-calendar`, as well as all of its dependencies to your `package.json` file.
 
@@ -71,12 +73,11 @@ Set up an [Angular theme](https://material.angular.io/guide/theming).  For examp
 
 A demonstration of the simple usage described above can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-quickstart
 
-## Demo Repo
+### Demo Repo
 
 A more extensive demonstration of usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-demo
 
-### Stackblitz
-*Coming soon*
+
 
 # Documentation
 
@@ -115,7 +116,7 @@ Selector: `ngx-mat-tui-calendar`
 ```bash
 git clone https://github.com/ron2015schmitt/ngx-mat-tui-calendar
 cd ngx-mat-tui-calendar
-npm install
+npm install --legacy-peer-deps
 ng build  
 ng serve
 ```
