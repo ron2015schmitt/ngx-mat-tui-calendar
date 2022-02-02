@@ -47,8 +47,9 @@ export class LocalDate {
   }
   static convertNumbersToDate({ year, month, day, hours, minutes, seconds, milliseconds }) {
     // month = 1 to 12
-    // start with today's *local* date. this si really important
+    // start with today's *local* date. this is really important
     let date = new Date();
+    date.setDate(1); // very important
     date.setFullYear(year);
     date.setMonth((month==null) ? 0 : month - 1);
     date.setDate((day==null) ? 1 : day);
