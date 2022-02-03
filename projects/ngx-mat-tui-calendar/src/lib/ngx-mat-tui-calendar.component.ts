@@ -412,7 +412,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     const get = (object, path, defaultValue) => {
       let value = path
         .split('.')
-        .reduce((o, p) => o[p], object);
+        .reduce((o, p) => o===undefined ? undefined : o[p], object);
       return (value !== undefined) ? value : defaultValue;
     }
 
