@@ -22,31 +22,31 @@
     width: 100%;  ">
           <div class="left-div">
             <!-- LEFT -->
-            <button mat-button 
+            <button mat-button *ngIf="appliedOptions.buttons.longPrevious"
               class="navigation-button"
               style="margin-left: 0px; margin-right: 0px; font-size: 1.5rem !important;" 
               (click)="onCalendarLongPrev()">
               <fa-icon [icon]="iconLongPrev"></fa-icon>
             </button>
-            <button mat-button 
+            <button mat-button  *ngIf="appliedOptions.buttons.previous"
               class="navigation-button" 
               style="margin-left: 0px; margin-right: 0px; font-size: 2rem !important;" 
               (click)="onCalendarPrev()">
               <fa-icon [icon]="iconPrev"></fa-icon>
             </button>
-            <button mat-button 
+            <button mat-button  *ngIf="appliedOptions.buttons.today"
               class="navigation-button"
               style="margin-left: 0px; margin-right: 0px; font-size: 1.7rem !important;" 
               (click)="onCalendarToday()">
               <fa-icon [icon]="iconToday"></fa-icon>
             </button>
-            <button mat-button 
+            <button mat-button  *ngIf="appliedOptions.buttons.next"
               class="navigation-button" 
               style="margin-left: 0px; margin-right: 0px; font-size: 2rem !important;" 
               (click)="onCalendarNext()">
               <fa-icon [icon]="iconNext"></fa-icon>
             </button>
-            <button mat-button 
+            <button mat-button  *ngIf="appliedOptions.buttons.longNext"
               class="navigation-button"
               style="margin-left: 0px; margin-right: 0px; font-size: 1.5rem !important;" 
               (click)="onCalendarLongNext()">
@@ -60,15 +60,16 @@
           <div class="right-div">
   
             <!-- RIGHT -->
-            <mat-button-toggle-group class="view-button" value="month" id="@+id/toggleButton" layout_width="wrap_content"
+            <mat-button-toggle-group [hidden]="!appliedOptions.buttons.month && !appliedOptions.buttons.week && !appliedOptions.buttons.day"
+            class="view-button" value="month" id="@+id/toggleButton" layout_width="wrap_content"
               layout_height="wrap_content">
-              <mat-button-toggle mat-button value="month" class="view-button" (click)="onMonthView()">
+              <mat-button-toggle *ngIf="appliedOptions.buttons.month" mat-button value="month" class="view-button" (click)="onMonthView()">
                 <fa-icon [icon]="iconByMonth"></fa-icon>
               </mat-button-toggle>
-              <mat-button-toggle mat-button value="week" class="view-button" (click)="onWeekView()">
+              <mat-button-toggle *ngIf="appliedOptions.buttons.week" mat-button value="week" class="view-button" (click)="onWeekView()">
                 <fa-icon [icon]="iconByWeek"></fa-icon>
               </mat-button-toggle>
-              <mat-button-toggle mat-button value="day" class="view-button" (click)="onDayView()">
+              <mat-button-toggle *ngIf="appliedOptions.buttons.day" mat-button value="day" class="view-button" (click)="onDayView()">
                 <fa-icon [icon]="iconByDay"></fa-icon>
               </mat-button-toggle>
             </mat-button-toggle-group>

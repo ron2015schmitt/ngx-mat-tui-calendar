@@ -39,6 +39,13 @@ export class AppComponent implements OnInit {
     } as IOptions,
     darkMode: this.darkMode,
     themeClass: this.themeClass,
+    buttons: {
+      longPrevious: true,
+      longNext: true,
+      month: true,
+      week: true,
+      day: true,
+    }
   } as CalendarOptions;
 
   // in lieu of a back-end database, a Map is used for demo purposes

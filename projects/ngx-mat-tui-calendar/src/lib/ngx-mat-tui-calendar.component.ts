@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChanges, OnDestroy, ViewEncapsulation, isDevMode } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 import distinctColors from 'distinct-colors';
@@ -61,7 +61,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   iconByDay = faListAlt;
 
   calendar: Calendar;  // the TUI Calendar Object
-  calendarId: string;
+  calendarIdDefault: string;
   colors: Color[];
   colorIndex: number;
   @Output() userCreatedSchedule: EventEmitter<ISchedule> = new EventEmitter();
@@ -74,28 +74,24 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     // we slice off the first color since it is gray
     this.colors = distinctColors({ lightMin: 70, count: 15 }).slice(1);
     this.colorIndex = 0;
-    this.calendarId = uuidv4();
-
-    this.appliedOptions = this.getDefaultOptions();
+    this.calendarIdDefault = "main";
   }
 
   ngOnInit() {
     // console.warn(`calendar.component.ts: ngOnit`)
-    this.createTUICalendar();
+    this.setOptions(this.options);
+    this.createTUICalendar(this.appliedOptions.ioptions);
     this.bindCallbacks();
+    this.calendar.toggleScheduleView(true);
+    this.calendar.render(true);
+    this.calendar.toggleScheduleView(true);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.warn(changes);
-    if (this.calendar) {
-
-      if (changes.options) {
-        // console.warn(`change.option:`, changes.options);
-        let options = changes.options.currentValue;
-        this.setOptions(options);
-      }
-    }
-
+    // console.warn(`ngOnChanges: `, changes);
+    // console.warn(`change.option:`, changes.options);
+    let options = changes.options.currentValue;
+    this.setOptions(options);
   }
 
   ngOnDestroy() {
@@ -166,16 +162,18 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
 
   onMonthView() {
     this.calendar.changeView('month');
+    this.calendar.render(true);  // <-- so that selection is cleared
   }
 
   onWeekView() {
-    console.log(`onWeekView`)
+    // console.log(`onWeekView`)
     this.calendar.changeView('week');
     this.calendar.render(true);  // <-- so that selection is cleared
   }
 
   onDayView() {
     this.calendar.changeView('day');
+    this.calendar.render(true);  // <-- so that selection is cleared
   }
 
 
@@ -188,8 +186,8 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     return str;
   }
 
-  createTUICalendar() {
-    let ioptions = this.preprocessIOptions(null);
+  createTUICalendar(iopts?: IOptions) {
+    let ioptions = this.preprocessIOptions(iopts);
     // console.warn(`calendar.component.ts: createTUICalendar: ioptions:`, ioptions);
     this.calendar = new Calendar('#calendar', ioptions);
     // console.warn(`calendar.component.ts: createTUICalendar: this.calendar:`, this.calendar);
@@ -322,7 +320,7 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
 
     let schedule: ISchedule = {
       id,
-      calendarId: (args.calendarId == null) ? this.calendarId : args.calendarId,
+      calendarId: (args.calendarId == null) ? this.calendarIdDefault : args.calendarId,
       title: args.title,
       start: start,
       end: end,
@@ -344,26 +342,26 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
 
   updateSchedule(schedule: ISchedule) {
     // console.log(`event-calendar.component.ts: updateSchedule:`, schedule);
-    let calendarId = (schedule.calendarId == null) ? this.calendarId : schedule.calendarId;
+    let calendarId = (schedule.calendarId == null) ? this.calendarIdDefault : schedule.calendarId;
     this.calendar.updateSchedule(schedule.id, calendarId, schedule, false);
     return this.calendar.getSchedule(schedule.id, calendarId);
   }
 
   getSchedule(args: { id: string, calendarId: string }) {
     // console.log(`event-calendar.component.ts: getSchedule:`, schedule);
-    let calendarId = (args.calendarId == null) ? this.calendarId : args.calendarId;
+    let calendarId = (args.calendarId == null) ? this.calendarIdDefault : args.calendarId;
     return this.calendar.getSchedule(args.id, calendarId);
   }
 
   deleteScheduleAndNotifyParent(args: { id: string, calendarId: string }) {
     this.deleteSchedule(args);
-    let calendarId = (args.calendarId == null) ? this.calendarId : args.calendarId;
+    let calendarId = (args.calendarId == null) ? this.calendarIdDefault : args.calendarId;
     this.userDeletedSchedule.emit({ id: args.id, calendarId });
   }
 
   deleteSchedule(args: { id: string, calendarId: string }) {
     // console.log(`event-calendar.component.ts: deleteSchedule:`, schedule);
-    let calendarId = (args.calendarId == null) ? this.calendarId : args.calendarId;
+    let calendarId = (args.calendarId == null) ? this.calendarIdDefault : args.calendarId;
     this.calendar.deleteSchedule(args.id, calendarId, false);
   }
 
@@ -405,20 +403,46 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
   }
 
 
-  setOptions(options: CalendarOptions) {
-    if (options == null) {
-      options = this.getDefaultOptions();
+  setDefaultOptions() {
+    this.setOptions();
+  }
+
+  setOptions(o?: CalendarOptions) {
+
+    const get = (object, path, defaultValue) => {
+      let value = path
+        .split('.')
+        .reduce((o, p) => o[p], object);
+      return (value !== undefined) ? value : defaultValue;
     }
-    options.ioptions = this.setIOptions(options.ioptions);
-    this.appliedOptions = {...options};
+
+    let options = {
+      darkMode: get(o, "darkMode", false),
+      themeClass: get(o, "themeClass", null),
+      ioptions: (o && o.ioptions) ? this.setIOptions(o.ioptions) : this.getDefaultIOptions(),
+      buttons: {
+        previous: get(o, "buttons.previous", true),
+        next: get(o, "buttons.next", true),
+        today: get(o, "buttons.today", true),
+        longPrevious: get(o, "buttons.longPrevious", true),
+        longNext: get(o, "buttons.longNext", true),
+        month: get(o, "buttons.month", true),
+        week: get(o, "buttons.week", true),
+        day: get(o, "buttons.day", true),
+      }
+    } as CalendarOptions;
+    this.appliedOptions = options;
+    // console.warn(`setOptions: `, this.appliedOptions);
   }
 
   setIOptions(ioptionsIn: IOptions) {
     let ioptions = this.preprocessIOptions(ioptionsIn);
-    this.calendar.setOptions(ioptions);
-    this.calendar.setTheme(ioptions.theme);
-    this.calendar.render(true);
-    this.calendar.toggleScheduleView(true);
+    if (this.calendar) {
+      this.calendar.setOptions(ioptions);
+      this.calendar.setTheme(ioptions.theme);
+      this.calendar.render(true);
+      this.calendar.toggleScheduleView(true);
+    }
     return ioptions;
   }
 
@@ -437,14 +461,6 @@ export class NgxMatTuiCalendarComponent implements OnInit, OnChanges, OnDestroy 
     return ioptions;
   }
 
-
-  getDefaultOptions(): CalendarOptions {
-    return {
-      darkMode: false,
-      themeClass: null,
-      ioptions: this.getDefaultIOptions(),
-    } as CalendarOptions;
-  }
 
   getDefaultIOptions(): IOptions {
     return {
