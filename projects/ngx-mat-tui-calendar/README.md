@@ -81,7 +81,7 @@ A more extensive demonstration of usage can be found at repo https://github.com/
 
 # Documentation
 
-## MatTuiCalendar
+## ngx-mat-tui-calendar
 
 
 Selector: `ngx-mat-tui-calendar`
@@ -108,6 +108,26 @@ Selector: `ngx-mat-tui-calendar`
 | @Output()
   userDeletedSchedule: EventEmitter<ISchedule> | Event emitter that emits when the user deletes a "schedule" (ie calendar task). |
 
+  ### Options
+  
+```typescript  
+export interface CalendarOptions {
+  ioptions: IOptions, // IOptions is defined in the tui-calendar package
+  darkMode: boolean,  // not yet implemented. default is false
+  themeClass?: string,
+  buttons: {       // this sets visibility of buttons.  default is true
+    previous?: boolean,
+    next?: boolean,
+    today?: boolean,
+    longPrevious?: boolean,
+    longNext?: boolean,
+    month?: boolean,
+    week?: boolean,
+    day?: boolean,
+  };
+}
+```
+  
   
 # Development 
 

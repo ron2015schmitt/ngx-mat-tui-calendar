@@ -1,7 +1,7 @@
 
 // Angular modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FlexModule, FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +31,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
 // collect all of the above modules into an array
 const importedModules = [
     BrowserAnimationsModule,
-    BrowserModule,
+    CommonModule,
     FlexLayoutModule,
     FlexModule, 
     FormsModule,

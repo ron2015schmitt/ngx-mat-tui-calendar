@@ -44,6 +44,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "distinct-colors",
+              "tui-calendar"
+            ],
             "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -51,8 +55,10 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "stylePreprocessorOptions": {
-              "includePaths": ["dist"]
-            },            
+              "includePaths": [
+                "dist"
+              ]
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -134,5 +140,5 @@
       }
     }
   },
- "defaultProject": "ngx-mat-tui-calendar"
+  "defaultProject": "ngx-mat-tui-calendar"
 }
