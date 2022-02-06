@@ -77,7 +77,9 @@ A demonstration of the simple usage described above can be found at repo https:/
 
 A more extensive demonstration of usage can be found at repo https://github.com/ron2015schmitt/ngx-mat-tui-calendar-demo
 
+### StackBlitz
 
+This project requires StackBlitz v2 and is forthcoming...
 
 # Documentation
 
